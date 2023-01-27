@@ -138,6 +138,7 @@ export class GreenExForm {
     this.setTarificationLoading();
     console.log(JSON.stringify(this.billingRequest));
     try {
+		/*
       let response = await this._shipmentProvider.tarifCalculation({
         billRequst: this.billingRequest,
       });
@@ -157,6 +158,75 @@ export class GreenExForm {
       if (this._billBlock) {
         this.drawBillInfo(bill.services);
       }
+      */ 
+      
+      let dataToSend = {
+		  'derival-address': this.billingRequest.fromCity,
+		  'arrival-address': this.billingRequest.toCity,
+		  'cargo-weight': this.billingRequest.weight,
+		  'cargo-length': this.billingRequest.length,
+		  'cargo-width': this.billingRequest.width,
+		  'cargo-height': this.billingRequest.height
+	  };
+      let response = await fetch(/*'https://greenex.pro */'/wp-content/themes/greenEx/php/calc.php?' + new URLSearchParams(dataToSend));
+	  console.log("Response: ", response);
+	  
+	  
+	  let si 
+	  if(response.ok){
+	  si = response.json();
+	  
+	  console.log('si: ', si);
+	  if (si.error.length == 0) {}else{console.log(si.error);}
+	  let bill = new Billing({
+        priceDelivery: si.amount, //response.priceDelivery,
+        timeDelivery: new Date(), //response.timeDelivery,
+        services: [], //response.services,
+        totalSum: si.amount //response.totalSum,
+      });
+
+      this._totalSum = bill.totalSum;
+      this._priceDelivery = bill.priceDelivery;
+      this.setPrice(bill.totalSum);
+
+      this.setServicesPrice(bill.services);
+      if (this._billBlock) {
+        this.drawBillInfo(bill.services);
+      }
+  }
+	  /*
+	  
+	  $.ajax({
+      url: "https://greenex.pro/wp-content/themes/greenEx/php/calc.php",
+      method: 'get',
+      dataType: "html",
+      data: dataToSend,
+      success: function (data) {
+        if (!data) {
+			console.log("Not a data");
+			return false;
+			};
+        var newarr = $.parseJSON(data);
+        console.log(newarr);
+
+        if (newarr.error.length == 0) {
+          
+        } else {
+         
+          
+        }
+
+      },
+      error: function(e){console.log(e);}
+    });
+	  */
+	  
+	  
+	  
+	  
+	  
+	  
+	  
     } catch (error) {
       if (error instanceof ApiErrorProvider) {
         this.setError(

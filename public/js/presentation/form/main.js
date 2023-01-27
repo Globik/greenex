@@ -1,8 +1,8 @@
 import { GreenExForm } from "../../logic/shipment/form/green-ex-form.js";
-//import { ModalCall, ModalMessage, ModalSubmitApplication } from "./modal.js";
+import { ModalCall, ModalMessage, ModalSubmitApplication } from "./modal.js";
 
 const DA_DATA_TOKEN = "fa388077b3b1932cc0e3f661829082185bdcfb25";
-/*
+
 // Modals
 const modalCall = new ModalCall("modal-call");
 const modalMessage = new ModalMessage("modal-comment");
@@ -23,7 +23,7 @@ document.querySelectorAll(".popup-link").forEach((link) => {
     }
   });
 });
-*/ 
+
 // END Modals
 
 class FormInput {
@@ -717,11 +717,11 @@ class CargosState {
     const weightInitialValue = GET_DATA ? GET_DATA.dimensions.weight : null;
     // Габариты умножаем на 100 для перевода в сантиметры
     const lengthInitialValue = GET_DATA
-      ? GET_DATA.dimensions.length * 100
+      ? GET_DATA.dimensions.length /* * 100 */
       : null;
-    const widthInitialValue = GET_DATA ? GET_DATA.dimensions.width * 100 : null;
+    const widthInitialValue = GET_DATA ? GET_DATA.dimensions.width /* * 100 */ : null;
     const heightInitialValue = GET_DATA
-      ? GET_DATA.dimensions.height * 100
+      ? GET_DATA.dimensions.height /* * 100 */
       : null;
 
     this.currentCargo = {
@@ -1207,8 +1207,35 @@ if (document.getElementById("calculation-form")) {
     document.getElementById("calculation-form"),
     document.getElementById("total-price")
   );
+  let w = calculationForm.form["cargo-weight"];
+  let l = calculationForm.form["cargo-length"];
+  let h = calculationForm.form["cargo-height"];
+  let width = calculationForm.form["cargo-width"];
+ 
+  
+  calculationForm.state.billingRequest.weight = w.value;
+  calculationForm.state.billingRequest.length = l.value;
+  calculationForm.state.billingRequest.height = h.value;
+  calculationForm.state.billingRequest.width = width.value;
+  
+  if(w.value && l.value && h.value && width.value){
+	 
+  w.onchange = hChange;
+  l.onchange = hChange;
+  h.onchange = hChange;
+  width.onchange = hChange;
 }
 
+
+function hChange(e){
+	
+  calculationForm.state.billingRequest.weight = w.value;
+  calculationForm.state.billingRequest.length = l.value;
+  calculationForm.state.billingRequest.height = h.value;
+  calculationForm.state.billingRequest.width = width.value;
+  calculationForm.state.tarifCalculation();
+}
+}
 class TaxiForm extends SinglePageForm {
   constructor(form, priceBlock) {
     super(form, priceBlock);
