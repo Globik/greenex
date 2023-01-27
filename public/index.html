@@ -1,0 +1,801 @@
+<html>
+	<head>
+		<link rel='stylesheet' id='main-style-css-css' href='css/app.min.css' type='text/css' media='all' />
+<!--><link rel='stylesheet' id='custom-css-css' href="css/custom.css?ver=1671537670' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css' href='style.css' type='text/css' media='all' />
+-->
+		</head>
+	<body>
+		<a href="">.</a><a href="">.</a>
+	
+
+		
+   <div class="wrapper">
+
+<header class="header">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <a href="https://greenex.pro" class="logo">
+                    <img src="https://greenex.pro/wp-content/themes/greenEx/assets/img/logo.jpg" alt="GreenEx" class="logo__img">
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class=" nav__item">
+                            <a href="https://greenex.pro/#calculation" class="nav__link">
+                                Калькулятор
+                            </a>
+                        </li>
+                        <li class=" nav__item">
+                            <a href="https://greenex.pro/#track-order" class="nav__link">
+                                Отслеживание заказа
+                            </a>
+                        </li>
+                        <li class=" nav__item">
+                            <a href="https://greenex.pro/#services" class="nav__link">
+                                Услуги
+                            </a>
+                        </li>
+                        <li class=" nav__item">
+                            <a href="https://greenex.pro/#stocks" class="nav__link">
+                                Акции
+                            </a>
+                        </li>
+                        <li class=" nav__item"><a href="https://greenex.pro/dokumenty/" class="nav__link">О нас</a></li>
+<li class=" nav__item"><a href="https://greenex.pro/marshruty/" class="nav__link">Маршруты</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <div class="row align-items-center gx-3">
+                    <div class="col d-none d-xl-block">
+                        <div>
+                                                            <a href="tel:+74996475777" class="phone">
+                                    +7 499 647 5777                                </a>
+                                                        <div style="margin-top:10px;"></div>
+                                                            <a href="tel:+79994796333" class="phone">
+                                    +7 999 479 6333                                </a>
+                                                    </div>
+                    </div>
+                    <div class="col">
+                        <a href="#modal-call" class="button button_color-green button_size-medium popup-link">
+                            Заказать звонок
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#modal-comment" class="button button_color-orange button_size-small popup-link">
+                            Написать
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-lg-none">
+                <div class="row gx-3 justify-content-end align-items-center">
+                    <div class="col">
+                        <div class="row gy-2 gx-0 justify-content-end">
+                                                            <div class="col-auto">
+                                    <a href="tel:+74996475777" class="phone">
+                                        +7 499 647 5777                                    </a>
+                                </div>
+                                <div class="w-100" style="margin: 0;"></div>
+                                                                                        <div class="col-auto">
+                                    <a href="tel:+79994796333" class="phone">
+                                        +7 999 479 6333                                    </a>
+                                </div>
+                                                    </div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="burger" id="mobile-menu-trigger">
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu__container">
+        <div class="row gy-4">
+            <div class="col-12">
+                <div class="mobile-nav">
+                    <ul class="mobile-nav__list">
+                        <li class="mobile-nav__item">
+                            <a href="https://greenex.pro/#calculation" class="mobile-nav__link">
+                                Калькулятор
+                            </a>
+                        </li>
+                        <li class="mobile-nav__item">
+                            <a href="https://greenex.pro/#track-order" class="mobile-nav__link">
+                                Отслеживание заказа
+                            </a>
+                        </li>
+                        <li class="mobile-nav__item">
+                            <a href="https://greenex.pro/mezhdugorodnyaya-perevozka/" class="mobile-nav__link">
+                                Междугородняя перевозка
+                            </a>
+                        </li>
+                        <li class="mobile-nav__item">
+                            <a href="https://greenex.pro/#services" class="mobile-nav__link">
+                                Услуги
+                            </a>
+                        </li>
+                        <li class="mobile-nav__item">
+                            <a href="https://greenex.pro/#stocks" class="mobile-nav__link">
+                                Акции
+                            </a>
+                        </li>
+                        <li class=" mobile-nav__item"><a href="https://greenex.pro/dokumenty/" class="mobile-nav__link">О нас</a></li>
+<li class=" mobile-nav__item"><a href="https://greenex.pro/marshruty/" class="mobile-nav__link">Маршруты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="mobile-nav__buttons">
+                    <div class="row gy-4">
+                        <div class="col-12">
+                            <a href="#modal-call" class="button button_color-green popup-link">Обратный звонок</a>
+                        </div>
+                        <div class="col-12">
+                            <a href="#modal-comment" class="button button_color-orange popup-link">Написать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+            const GET_DATA = JSON.parse('{\"fromCity\":\"Санкт-Петербург\",\"toCity\":\"Москва\",\"dimensions\":{\"weight\":1000,\"length\":10,\"height\":10,\"width\":10},\"priceDelivery\":\"2544.00\"}');
+    </script>
+
+<main>
+
+    <div class="container">
+        <div class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+                <!-- Breadcrumb NavXT 7.0.2 -->
+<li class="breadcrumbs__item"><a href="https://greenex.pro" title="Перейти к GreenEx." class="breadcrumbs__link">Главная</a></li><li class="breadcrumbs__item breadcrumbs__item_no-link">Междугородняя перевозка</li>            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="section section_pt60">
+
+            <h1 class="section__calculation-title">
+                Междугородняя перевозка            </h1>
+            <div class="row gx-4 gy-4 justify-content-between">
+                <div class="col-12 col-lg-6 col-wxp-6">
+                    <form class="form" id="calculation-form" autocomplete="off">
+                        <div class="form__row">
+                            <div class="form__title">
+                                Информация о грузе
+                            </div>
+                            <div class="row gy-2" id="cargos">
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block">
+                                        <label for="cargo-name" class="form__label">
+                                            Наименование груза<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" placeholder="Введите наименование груза" name="cargo-name" id="cargo-name" required>
+                                        <div class="form__hint">
+                                            Например: <a href="#">личные вещи</a>, <a href="#">мебель</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="cargo-weight" class="form__label">
+                                            Вес груза<span style="color: #FF3500">*</span>, кг
+                                        </label>
+                                        <input type="number" class="form__input" placeholder="Введите вес груза, кг" name="cargo-weight" id="cargo-weight" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label class="form__label">
+                                            Габариты груза<span style="color: #FF3500">*</span>, см
+                                        </label>
+                                        <div class="form__input-block">
+                                            <div class="row gx-1 justify-content-center align-items-center">
+                                                <div class="col-3">
+                                                    <input type="number" class="form__input-mini" placeholder="Д" name="cargo-length" required>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <svg class="form__icon-input-block">
+                                                        <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#cross">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                                <div class="col-3">
+                                                    <input type="number" class="form__input-mini" placeholder="Ш" name="cargo-width" required>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <svg class="form__icon-input-block">
+                                                        <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#cross">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                                <div class="col-3">
+                                                    <input type="number" class="form__input-mini" placeholder="В" name="cargo-height" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block-add-item" id="add-cargo">
+                                        <button class="form__btn-add-item">
+                                            <svg class="form__icon-add-item">
+                                                <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#plus"></use>
+                                            </svg>
+                                        </button>
+                                        <span class="form__span-add-item">
+                                            Добавить груз
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <ol class="added-list" id="list-cargo"></ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__title">
+                                Откуда
+                            </div>
+                            <div class="row gy-2">
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block">
+                                        <label for="derival-address-town" class="form__label">
+                                            Населенный пункт<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" placeholder="Введите населенный пункт" name="derival-address-town" id="derival-address-town" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block">
+                                        <label for="derival-address-street" class="form__label">
+                                            Адрес<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" placeholder="Введите адрес отправителя" name="derival-address-street" id="derival-address-street" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block">
+                                        <label for="derival-address-street" class="form__label">
+                                            Номер дома<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" placeholder="Введите номер дома получателя" name="derival-address-house" id="derival-address-house" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="date" class="form__label">
+                                            Дата перевозки<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <div class="form__date-block">
+                                            <input type="text" class="form__input" placeholder="Выберите дату перевозки" name="date" id="date" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="datetime-from" class="form__label">
+                                            Время подачи - С<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="time" class="form__input" name="datetime-from" id="datetime-from" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="datetime-to" class="form__label">
+                                            Время подачи - ПО<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="time" class="form__input" name="datetime-to" id="datetime-to" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__title">
+                                Куда
+                            </div>
+                            <div class="row gy-2">
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block">
+                                        <label for="arrival-address-town" class="form__label">
+                                            Населенный пункт<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" placeholder="Введите населенный пункт" name="arrival-address-town" id="arrival-address-town" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block">
+                                        <label for="arrival-address-street" class="form__label">
+                                            Адрес<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" placeholder="Введите адрес получателя" name="arrival-address-street" id="arrival-address-street" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__block">
+                                        <label for="arrival-address-street" class="form__label">
+                                            Номер дома<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" placeholder="Введите номер дома получателя" name="arrival-address-house" id="arrival-address-house" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__title">Дополнительные услуги:</div>
+                                    <ul class="form__list form__list_info">
+                                                                                    <li class="form__item-list">
+                                                <label class="form-checkbox">
+                                                    <input type="checkbox" name="service-extra" class="form-checkbox__input" value="ДУ-ВозвратСД" data-short-name="Возврат СД" data-full-name="Возврат сопроводительных документов">
+                                                    <span class="form-checkbox__span">
+                                                        Возврат сопроводительных документов                                                    </span>
+                                                </label>
+                                                                                            </li>
+                                                                                    <li class="form__item-list">
+                                                <label class="form-checkbox">
+                                                    <input type="checkbox" name="service-extra" class="form-checkbox__input" value="ДУ-ОтправкаСД" data-short-name="Отправка СД" data-full-name="Отправка сопроводительных документов">
+                                                    <span class="form-checkbox__span">
+                                                        Отправка сопроводительных документов                                                    </span>
+                                                </label>
+                                                                                            </li>
+                                                                            </ul>
+                                </div>
+                                                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <div class="form__title">Услуги на терминале отправителе:</div>
+                                    <ul class="form__list form__list_info">
+                                                                                    <li class="form__item-list">
+                                                <label class="form-checkbox">
+                                                    <input type="checkbox" name="service-derival" class="form-checkbox__input" value="УО-ДопУпаковка" data-short-name="Упаковка" data-full-name="Упаковать в дополнительную упаковку">
+                                                    <span class="form-checkbox__span">
+                                                        Упаковать в дополнительную упаковку                                                    </span>
+                                                </label>
+                                                                                                    <div class="info">
+                                                        <span class="info__icon"></span>
+                                                        <div class="info__content">
+                                                            <img width="47" height="72" src="https://greenex.pro/wp-content/uploads/2021/12/pallet_boardresurs-1-1.png" class="info__img" alt="" decoding="async" loading="lazy" />                                                            Прочная недорогая упаковка, которая подходит для грузов разных размеров.                                                                                                                    </div>
+                                                    </div>
+                                                                                            </li>
+                                                                                    <li class="form__item-list">
+                                                <label class="form-checkbox">
+                                                    <input type="checkbox" name="service-derival" class="form-checkbox__input" value="УО-ДеревяннаяОбрешётка" data-short-name="Упаковка" data-full-name="Упаковать в деревянную обрешётку">
+                                                    <span class="form-checkbox__span">
+                                                        Упаковать в деревянную обрешётку                                                    </span>
+                                                </label>
+                                                                                                    <div class="info">
+                                                        <span class="info__icon"></span>
+                                                        <div class="info__content">
+                                                            <img width="47" height="72" src="https://greenex.pro/wp-content/uploads/2021/12/pallet_boardresurs-1-1.png" class="info__img" alt="" decoding="async" loading="lazy" />                                                            Жесткая упаковка из бруса которая подходит для хрупких или негабаритных грузов                                                                                                                    </div>
+                                                    </div>
+                                                                                            </li>
+                                                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__title">
+                                Информация об отправителе
+                            </div>
+                            <div class="row gy-2">
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="derival-name" class="form__label">
+                                            Имя<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" name="derival-name" id="derival-name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="derival-surname" class="form__label">
+                                            Фамилия<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" name="derival-surname" id="derival-surname" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="derival-tel" class="form__label">
+                                            Телефон<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="tel" placeholder="+7 (999)-888-77-66" class="form__input" name="derival-tel" id="derival-tel" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__title">
+                                Информация о получателе
+                            </div>
+                            <div class="row gy-2">
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="arrival-name" class="form__label">
+                                            Имя<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" name="arrival-name" id="arrival-name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="arrival-surname" class="form__label">
+                                            Фамилия<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="text" class="form__input" name="arrival-surname" id="arrival-surname" required>
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-12 col-lg-6 col-wxp-5">
+                                    <div class="form__block">
+                                        <label for="arrival-tel" class="form__label">
+                                            Телефон<span style="color: #FF3500">*</span>
+                                        </label>
+                                        <input type="tel" placeholder="+7 (999)-888-77-66" class="form__input" name="arrival-tel" id="arrival-tel" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__title">
+                                Способ оплаты
+                            </div>
+                            <div class="row gy-2">
+                                <div class="col-12 col-lg-10 col-wxp-8">
+                                    <ul class="form__list">
+                                        <li class="form__item-list">
+                                            <label class="form-radio">
+                                                <input type="radio" name="payment-type" value="to-courier" class="form-radio__input" data-name="Наличными курьеру" required>
+                                                <span class="form-radio__span">
+                                                    Наличными курьеру
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="form__item-list">
+                                            <label class="form-radio">
+                                                <input type="radio" name="payment-type" value="credit-card" class="form-radio__input" data-name="Оплата дебетовой или кредитной картой" required>
+                                                <span class="form-radio__span">
+                                                    Оплата дебетовой или кредитной картой
+                                                </span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__error"></div>
+                        <div class="form__row">
+                            <div class="row gy-3 align-items-center justify-content-between">
+                                <div class="col-12 col-lg-6">
+                                    <button type="submit" class="button button_color-green">
+                                        <span class="button__text">
+                                            Оформить заказ
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-6 col-wxp-5">
+                    <div class="bill" id="bill">
+                        <div class="bill__content">
+                            <div id="bill-pdf">
+                                <div id="extra-services"></div>
+                                <div id="derival-services"></div>
+                                <div id="bill-payment-type"></div>
+                                <div class="bill__row">
+                                    <div class="bill__line">
+                                        <span class="bill__name-line bill__name-line_title">
+                                            Стоимость заказа
+                                        </span>
+                                        <span class="bill__value-line">
+                                            <span id="total-price"></span> р.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bill__btn-row">
+                                <div class="row justify-content-between gy-3">
+                                    <div class="col-auto">
+                                        <button class="btn-link btn-link_green" id="print-order">
+                                            <span class="btn-link__span">
+                                                Распечатать стоимость
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button class="btn-link btn-link_gray" onclick="generatePDF()">
+                                            <span class="btn-link__span">
+                                                Сохранить расчет
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div class="row gy-4 align-items-center">
+                <div class="col-12 col-md-4 col-lg-2 d-none">
+                    <a href="https://greenex.pro" class="logo">
+                        <img src="https://greenex.pro/wp-content/themes/greenEx/assets/img/logo.jpg" alt="GreenEx" class="logo__img">
+                    </a>
+                </div>
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="row gy-2">
+                                                    <div class="col-12">
+                                <div class="contact-item">
+                                    <svg class="contact-item__icon">
+                                        <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#phone"></use>
+                                    </svg>
+                                    <a href="tel:+74996475777" class="contact-item__text">
+                                        +7 499 647 5777                                    </a>
+                                </div>
+                            </div>
+                                                                            <div class="col-12">
+                                <div class="contact-item">
+                                    <svg class="contact-item__icon">
+                                        <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#phone"></use>
+                                    </svg>
+                                    <a href="tel:+79994796333" class="contact-item__text">
+                                        +7 999 479 6333                                    </a>
+                                </div>
+                            </div>
+                                                <div class="col-12">
+                            <div class="contact-item">
+                                <svg class="contact-item__icon">
+                                    <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#time"></use>
+                                </svg>
+                                <div class="contact-item__text">
+                                    Пн - Пт: 09:00-22:00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                    <div class="col-12 col-md-4 col-lg-3">
+                        <div class="contact-item">
+                            <svg class="contact-item__icon">
+                                <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#nav-point"></use>
+                            </svg>
+                            <div class="contact-item__text">
+                                РФ, РСО-Алания, г. Владикавказ, пер. Станиславского 5, офис 605                            </div>
+                        </div>
+                    </div>
+                                <div class="col-12 order-md-5">
+                    <div class="row gy-2">
+                        <div class="col-12 col-lg-auto">
+                            <a href="https://greenex.pro/usloviya-gruzovyh-perevozok/" class="footer-link">
+                                Конфиденциальность
+                            </a>
+                        </div>
+                        <div class="col-12 col-lg-auto">
+                            <a href="https://greenex.pro/usloviya-ispolzovaniya-i-politika-konfidenczialnosti/" class="footer-link">
+                                Условия грузовых перевозок
+                            </a>
+                        </div>
+                        <div class="col-12 col-lg-auto">
+                            <a href="https://greenex.pro/sposoby-oplaty-i-rekvizity/" class="footer-link">
+                                Способы оплаты и реквизиты
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-none d-lg-block"></div>
+                <div class="col-12 col-lg-auto">
+                    <div class="footer__payment-images-block">
+                        <div class="footer__payment-image-block">
+                            <img src="https://greenex.pro/wp-content/themes/greenEx/assets/img/pay_1.png" alt="MIR" class="footer__payment-image">
+                        </div>
+                        <div class="footer__payment-image-block">
+                            <img src="https://greenex.pro/wp-content/themes/greenEx/assets/img/pay_2.png" alt="VISA" class="footer__payment-image">
+                        </div>
+                        <div class="footer__payment-image-block">
+                            <img src="https://greenex.pro/wp-content/themes/greenEx/assets/img/pay_3.png" alt="MASTER CARD" class="footer__payment-image">
+                        </div>
+                        <div class="footer__payment-image-block">
+                            <img src="https://greenex.pro/wp-content/themes/greenEx/assets/img/pay_4.png" alt="JCB" class="footer__payment-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 order-md-1 col-lg d-lg-none">
+                    <div class="row gy-3">
+                        <div class="col-12 col-md-6">
+                            <a href="#modal-call" class="button button_color-green popup-link">
+                                Заказать звонок
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="#modal-comment" class="button button_color-orange popup-link">
+                                Написать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__line"></div>
+            <div class="footer__bottom-text">© 2023 Все права защищены</div>
+        </div>
+    </div>
+</footer>
+
+<div id="modal-submit-application" class="modal popup">
+    <div class="modal__body">
+        <div class="form-modal popup_content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-modal__content">
+                        <div class="form-modal__title">Оставить заявку</div>
+                        <form class="form form_modal">
+                            <div class="row gy-4">
+                                <div class="col-12">
+                                    <div class="form__block">
+                                        <label for="modal-call-name" class="form__label">Имя</label>
+                                        <input type="text" class="form__input" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form__block">
+                                        <label for="modal-call-tel" class="form__label">Телефон</label>
+                                        <input type="tel" class="form__input" name="tel" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="button button_color-green">
+                                        <span class="button__text">
+                                            Отправить
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="response"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__close-icon-block popup_close">
+                <svg class="modal__close-icon">
+                    <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#close"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-call" class="modal popup">
+    <div class="modal__body">
+        <div class="form-modal popup_content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-modal__content">
+                        <div class="form-modal__title">Заказать звонок</div>
+                        <form class="form form_modal">
+                            <div class="row gy-4">
+                                <div class="col-12">
+                                    <div class="form__block">
+                                        <label for="modal-call-name" class="form__label">Имя</label>
+                                        <input type="text" class="form__input" id="modal-call-name" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form__block">
+                                        <label for="modal-call-tel" class="form__label">Телефон</label>
+                                        <input type="tel" class="form__input" id="modal-call-tel" name="tel" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="button button_color-green">
+                                        <span class="button__text">
+                                            Отправить
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="response"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__close-icon-block popup_close">
+                <svg class="modal__close-icon">
+                    <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#close"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-comment" class="modal popup">
+    <div class="modal__body">
+        <div class="form-modal popup_content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-modal__content">
+                        <div class="form-modal__title">Оставить сообщение</div>
+                        <form class="form form_modal">
+                            <div class="row gy-4">
+                                <div class="col-12">
+                                    <div class="form__block">
+                                        <label for="modal-call-name" class="form__label">Имя</label>
+                                        <input type="text" id="sukaname" class="form__input" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form__block">
+                                        <label for="modal-call-tel" class="form__label">Телефон</label>
+                                        <input type="tel" class="form__input" name="tel" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form__block">
+                                        <label for="modal-call-tel" class="form__label">Сообщение</label>
+                                        <textarea name="message" class="form__textarea" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="button button_color-green">
+                                        <span class="button__text">
+                                            Отправить
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="response"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__close-icon-block popup_close">
+                <svg class="modal__close-icon">
+                    <use xlink:href="https://greenex.pro/wp-content/themes/greenEx/assets/images/sprite.svg#close"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+   <script type='text/javascript' src='js/app.min.js' id='app-js'></script> 
+
+<script type='text/javascript' src='libr/jquery/jquery-cookie.min.js' id='jquery-cookie-js'></script>
+ <script type='text/javascript' src='libr/jquery/jquery-mask.min.js' id='jquery-mask-js'></script>
+<script type='text/javascript' src='libr/suggestions/suggestions.min.js' id='suggestions-js-js'></script> 
+<script type='text/javascript' src='libr/imask/mask.js?ver=1.1.0' id='mask-js-js'></script> 
+
+
+<script type='text/javascript' src='js/main.js' id='main-js'></script>
+<script  type="module" src="js/presentation/form/main.js"></script>
+		</div></body>
+	</html>
