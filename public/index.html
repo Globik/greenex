@@ -178,7 +178,7 @@
                                         <label for="cargo-name" class="form__label">
                                             Наименование груза<span style="color: #FF3500">*</span>
                                         </label>
-                                        <input type="text" class="form__input" placeholder="Введите наименование груза" name="cargo-name" id="cargo-name" required>
+                                        <input type="text" class="form__input" value="cargo" placeholder="Введите наименование груза" name="cargo-name" id="cargo-name" required>
                                         <div class="form__hint">
                                             Например: <a href="#">личные вещи</a>, <a href="#">мебель</a>
                                         </div>
@@ -264,7 +264,7 @@
                                         <label for="derival-address-street" class="form__label">
                                             Адрес<span style="color: #FF3500">*</span>
                                         </label>
-                                        <input type="text" class="form__input" placeholder="Введите адрес отправителя" name="derival-address-street" id="derival-address-street" required>
+                                        <input type="text" class="form__input" value="Комсомольская пл."  placeholder="Введите адрес отправителя" name="derival-address-street" id="derival-address-street" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -273,7 +273,7 @@
                                         <label for="derival-address-street" class="form__label">
                                             Номер дома<span style="color: #FF3500">*</span>
                                         </label>
-                                        <input type="text" class="form__input" placeholder="Введите номер дома получателя" name="derival-address-house" id="derival-address-house" required>
+                                        <input type="text" class="form__input" value="д.5" placeholder="Введите номер дома получателя" name="derival-address-house" id="derival-address-house" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -325,7 +325,7 @@
                                         <label for="arrival-address-street" class="form__label">
                                             Адрес<span style="color: #FF3500">*</span>
                                         </label>
-                                        <input type="text" class="form__input" placeholder="Введите адрес получателя" name="arrival-address-street" id="arrival-address-street" required>
+                                        <input type="text" class="form__input" value="ул. Строителей" placeholder="Введите адрес получателя" name="arrival-address-street" id="arrival-address-street" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -334,7 +334,7 @@
                                         <label for="arrival-address-street" class="form__label">
                                             Номер дома<span style="color: #FF3500">*</span>
                                         </label>
-                                        <input type="text" class="form__input" placeholder="Введите номер дома получателя" name="arrival-address-house" id="arrival-address-house" required>
+                                        <input type="text" class="form__input" value="д.6" placeholder="Введите номер дома получателя" name="arrival-address-house" id="arrival-address-house" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -784,7 +784,7 @@
     </div>
 </div>
 <script>
-const GET_DATA = JSON.parse('{\"fromCity\":\"Санкт-Петербург\",\"toCity\":\"Москва\",\"dimensions\":{\"weight\":1000,\"length\":10,\"height\":10,\"width\":10},\"priceDelivery\":\"2544.00\"}');
+const GET_DATA = JSON.parse('{\"fromCity\":\"Санкт-Петербург\",\"toCity\":\"Москва\",\"dimensions\":{\"weight\":18000,\"length\":60,\"height\":60,\"width\":60},\"priceDelivery\":\"2544.00\"}');
     </script>
    
    <script type='text/javascript' src='js/app.min.js' id='app-js'></script> 

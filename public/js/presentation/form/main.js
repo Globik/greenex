@@ -4,6 +4,7 @@ import { ModalCall, ModalMessage, ModalSubmitApplication } from "./modal.js";
 const DA_DATA_TOKEN = "fa388077b3b1932cc0e3f661829082185bdcfb25";
 
 // Modals
+
 const modalCall = new ModalCall("modal-call");
 const modalMessage = new ModalMessage("modal-comment");
 const modalSubmitApplication = new ModalSubmitApplication(
@@ -695,7 +696,7 @@ class ExtraService {
   constructor({ input, onCheckedTrue, onCheckedFalse }) {
     this.input = input;
     this._onCheckedTrue = onCheckedTrue;
-    this._onCheckedFalse = onCheckedFalse;
+    this.onCheckedFalse = onCheckedFalse;
     this.input.addEventListener("change", (event) => {
       this.eventChangeInput(event);
     });
@@ -705,7 +706,7 @@ class ExtraService {
     if (this.input.checked) {
       this._onCheckedTrue();
     } else {
-      this._onCheckedFalse();
+      this.onCheckedFalse();
     }
   }
 }
@@ -717,11 +718,11 @@ class CargosState {
     const weightInitialValue = GET_DATA ? GET_DATA.dimensions.weight : null;
     // Габариты умножаем на 100 для перевода в сантиметры
     const lengthInitialValue = GET_DATA
-      ? GET_DATA.dimensions.length /* * 100 */
+      ? GET_DATA.dimensions.length * 100 
       : null;
-    const widthInitialValue = GET_DATA ? GET_DATA.dimensions.width /* * 100 */ : null;
+    const widthInitialValue = GET_DATA ? GET_DATA.dimensions.width  * 100  : null;
     const heightInitialValue = GET_DATA
-      ? GET_DATA.dimensions.height /* * 100 */
+      ? GET_DATA.dimensions.height  * 100 
       : null;
 
     this.currentCargo = {
@@ -790,12 +791,12 @@ class CargosState {
       onPressEnterCallback: onPressEnterFunction,
     });
 
-    this._cargoAddedCallback = cargoAddedCallback;
-    this._cargoDeletedCallback = cargoDeletedCallback;
-    this._addBtn = block.querySelector("#add-cargo");
-    this._cargoList = block.querySelector("#list-cargo");
+    this.cargoAddedCallback = cargoAddedCallback;
+    this.cargoDeletedCallback = cargoDeletedCallback;
+    this.addBtn = block.querySelector("#add-cargo");
+    this.cargoList = block.querySelector("#list-cargo");
 
-    this._addBtn.addEventListener("click", (event) => {
+    this.addBtn.addEventListener("click", (event) => {
       this.addItem();
     });
 
@@ -902,7 +903,7 @@ class CargosState {
 
     listItem.appendChild(text);
     listItem.appendChild(btn);
-    this._cargoList.appendChild(listItem);
+    this.cargoList.appendChild(listItem);
   }
 
   setRequiredInputs() {
