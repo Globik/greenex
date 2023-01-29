@@ -1028,7 +1028,7 @@ class SinglePageForm {
       input: this.form.querySelector("input[name=arrival-address-street]"),
       constraints: this.arrivalLocality,
       addressChangedCallback: (city, region, fullAddress) => {
-        this.state.arrivalAddressChange(city, region, fullAddress);
+       this.state.arrivalAddressChange(city, region, fullAddress);
         this.state.tarifCalculation();
       },
       addressClearCallback: () => {
@@ -1213,6 +1213,25 @@ if (document.getElementById("calculation-form")) {
   let h = calculationForm.form["cargo-height"];
   let width = calculationForm.form["cargo-width"];
  
+ let derivalCity = calculationForm.form["derival-address-town"];
+ let arrivalCity = calculationForm.form["arrival-address-town"];
+ console.log("arrival: ", arrivalCity.value);
+    calculationForm.state.billingRequest["toCity"] = arrivalCity.value;
+    calculationForm.state.billingRequest["toRegion"] = arrivalCity.value;
+    calculationForm.state.billingRequest["fromCity"] = derivalCity.value;
+    calculationForm.state.billingRequest["fromRegion"] = derivalCity.value;
+    
+    arrivalCity.onchange = function(e){
+		calculationForm.state.billingRequest["toCity"] = arrivalCity.value;
+		calculationForm.state.billingRequest["toRegion"] = arrivalCity.value;
+		calculationForm.state.tarifCalculation();
+	}
+	
+	derivalCity.onchange = function(e){
+		calculationForm.state.billingRequest["fromCity"] = derivalCity.value;
+		calculationForm.state.billingRequest["fromRegion"] = derivalCity.value;
+		calculationForm.state.tarifCalculation();
+	}
   
   calculationForm.state.billingRequest.weight = w.value;
   calculationForm.state.billingRequest.length = l.value;

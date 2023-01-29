@@ -131,8 +131,8 @@ export class GreenExForm {
   }
 
   async tarifCalculation() {
-    if (!this._addressesCheck()) {
-      return;
+   if (!this._addressesCheck()) {
+     return;
     }
     if (
       !this.billingRequest.weight &&
@@ -172,8 +172,8 @@ export class GreenExForm {
             });
 
             this._totalSum = si.amount;
-            console.log("totalSum: ", this._totalSum);
-            this.priceDelivery = si.amount;
+          //  console.log("totalSum: ", this._totalSum);
+            this._priceDelivery = si.amount;
             this.setPrice(si.amount);
 
             this.setServicesPrice(bill.services);
@@ -181,8 +181,12 @@ export class GreenExForm {
               this.drawBillInfo(bill.services);
             }
           } else {
-            console.log(si.error);
+            //console.log(si.error);
             this.setError("danger", si.error);
+             this._totalSum = 0;
+            
+            this._priceDelivery = 0;
+            this.setPrice(0);
           }
         }
       }
@@ -196,7 +200,7 @@ export class GreenExForm {
       if (error instanceof RequestErrorProvider) {
         this.setError("danger", error.message);
       }
-      console.log(error);
+     // console.log(error);
     } finally {
       this.removeTarificationLoading();
     }
@@ -473,8 +477,10 @@ export class GreenExForm {
     this.changeSenderAddress(fullAddress);
   }
   derivalAddressClear() {
-    this.billingRequest["fromCity"] = undefined;
-    this.billingRequest["fromRegion"] = undefined;
+ //   this.billingRequest["fromCity"] = undefined;
+ //   this.billingRequest["fromRegion"] = undefined;
+ this.billingRequest["fromCity"] = this.form["derival-address-town"].value;;
+    this.billingRequest["fromRegion"] = this.form["derival-address-town"].value;;
     this._derivalFullAddress = undefined;
     this.changeSenderAddress(undefined);
   }
@@ -486,8 +492,10 @@ export class GreenExForm {
     this.changeRecipientAddress(fullAddress);
   }
   arrivalAddressClear() {
-    this.billingRequest["toCity"] = undefined;
-    this.billingRequest["toRegion"] = undefined;
+  //  this.billingRequest["toCity"] = undefined;
+  //  this.billingRequest["toRegion"] = undefined;
+  this.billingRequest["toCity"] = this.form["arrival-address-town"].value;
+   this.billingRequest["toRegion"] = this.form["arrival-address-town"].value;
     this._arrivalFullAddress = undefined;
     this.changeRecipientAddress(undefined);
   }
@@ -833,7 +841,7 @@ export class GreenExForm {
   // ***
   print() {
     let dataPrint = {};
-console.log("totalSum:", this._totalSum)
+console.log("totalSum:", this._totalSum, this._priceDelivery)
     if (this._cargos) {
       let cargoPrint = {
         name: "Расчет стоимости на перевозку груза по указанным габаритам",
