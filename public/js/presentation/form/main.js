@@ -456,7 +456,7 @@ class IntercityForm extends GreenExFormPresentation {
 if (document.getElementById("intercity-form")) {
   let intercityForm = new IntercityForm(
     document.getElementById("intercity-form"),
-   document.getElementById("intercity-form-price")
+    document.getElementById("intercity-form-price")
   );
 }
 

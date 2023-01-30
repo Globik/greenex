@@ -6,15 +6,15 @@ const BASE_URL = "https://greenex.pro/wp-json/mail/v1";
 class Modal {
   constructor(modalId) {
     this.modalId = modalId;
-    this.modal = document.getElementById(this.modalId);
-    this.form = this.modal.querySelector("form");
-    this.formDisabled = false;
+    this._modal = document.getElementById(this.modalId);
+    this.form = this._modal.querySelector("form");
+    this._formDisabled = false;
     this.responseBlock = this.form.querySelector(".response");
 
     this._url = "";
     this._data = {};
 
-    this.modal.addEventListener("click", (event) => {
+    this._modal.addEventListener("click", (event) => {
       if (!event.target.closest(".popup_content")) {
         this.hide();
       }
@@ -35,7 +35,7 @@ class Modal {
       }
     });
 
-    let close = this.modal.querySelector(".popup_close");
+    let close = this._modal.querySelector(".popup_close");
     close.addEventListener("click", (event) => {
       event.preventDefault();
       this.hide();
@@ -43,7 +43,7 @@ class Modal {
   }
 
   show() {
-    this.modal.classList.add("popup_active");
+    this._modal.classList.add("popup_active");
     BODY.classList.add("disabled-scroll");
   }
 
@@ -114,7 +114,7 @@ export class ModalCall extends Modal {
     this._url = `${BASE_URL}/call/`;
 
     this.nameInput = new FormInput({
-      input: this.modal.querySelector("input[name=name]"),
+      input: this._modal.querySelector("input[name=name]"),
       onChangeCallback: (value) => {
         this._data["name"] = value;
       },

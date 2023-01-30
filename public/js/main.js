@@ -127,9 +127,15 @@ $(document).ready(function () {
     $(intercityFormPrice).addClass('button_loading');
     $(".calculation div.col-12:has(.price-line_white)").find('.alert_warning').remove();
     $('.form_slider').find("input[name=price]").val('');
+     console.warn('derival-address: ', $('.form_slider').find("input[name=derival-address]").val());
+     console.warn('arrival-address:', $('.form_slider').find("input[name=arrival-address]").val());
+     console.warn('cargo-weight: ', $('.form_slider').find("input[name=cargo-weight]").val());
+     console.warn('cargo-length: ', $('.form_slider').find("input[name=cargo-length]").val());
+     console.warn('cargo-width: ', $('.form_slider').find("input[name=cargo-width]").val());
+     console.warn('cargo-height: ', $('.form_slider').find("input[name=cargo-height]").val());
 
     var dataSend = $('.form_slider').serialize();
-  console.warn("dataSend: ", $('.form_slider'));
+  
     $.ajax({
       url: "/wp-content/themes/greenEx/php/calc.php",
       method: 'get',
