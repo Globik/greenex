@@ -109,7 +109,7 @@ $(document).ready(function () {
 	
   // Калькулятор
   $('#intercity-form input').on('change', function () {
-
+   console.warn("JQUERY AJAX CALL");
     var reqField = new Array("derival-address", "arrival-address", "cargo-weight", "cargo-length", "cargo-width", "cargo-height");
     var reqFieldEmpty = 0;
     $("#intercity-form").find("input").each(function () {
@@ -129,7 +129,7 @@ $(document).ready(function () {
     $('.form_slider').find("input[name=price]").val('');
 
     var dataSend = $('.form_slider').serialize();
-
+  console.warn("dataSend: ", $('.form_slider'));
     $.ajax({
       url: "/wp-content/themes/greenEx/php/calc.php",
       method: 'get',

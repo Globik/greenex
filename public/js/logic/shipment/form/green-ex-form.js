@@ -131,6 +131,7 @@ export class GreenExForm {
   }
 
   async tarifCalculation() {
+	  if(!document.getElementById('total-price')){return;}
    if (!this._addressesCheck()) {
      return;
     }
