@@ -502,6 +502,7 @@ export class GreenExForm {
   }
 
   // Габариты делим на сто для перевода в метры
+  // я: а надо ли в метры переводить, когда пхп скрипт принимает габариты в сантиметрах????
 
   weightValueChange(value) {
     value = Number(value);

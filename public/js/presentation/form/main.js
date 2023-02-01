@@ -454,10 +454,7 @@ class IntercityForm extends GreenExFormPresentation {
 }
 
 if (document.getElementById("intercity-form")) {
-  let intercityForm = new IntercityForm(
-    document.getElementById("intercity-form"),
-    document.getElementById("intercity-form-price")
-  );
+  let intercityForm = new IntercityForm( document.getElementById("intercity-form"), document.getElementById("intercity-form-price"));
 }
 
 // ***
@@ -829,7 +826,7 @@ class CargosState {
 
   addItem() {
     if (this.addItemCheck()) {
-      let id = this._cargoAddedCallback(this.currentCargo);
+      let id = this.cargoAddedCallback(this.currentCargo);
       this.addCargo(id, this.currentCargo);
       this.addListItem(id);
       this.clearInputs();
@@ -840,7 +837,7 @@ class CargosState {
   deleteItem(id, listItem) {
     this.deleteCargo(id);
     this.deleteListItem(listItem);
-    this._cargoDeletedCallback(id);
+    this.cargoDeletedCallback(id);
   }
 
   addCargo(id, cargo) {
