@@ -714,13 +714,9 @@ class CargosState {
 
     const weightInitialValue = GET_DATA ? GET_DATA.dimensions.weight : null;
     // Габариты умножаем на 100 для перевода в сантиметры
-    const lengthInitialValue = GET_DATA
-      ? GET_DATA.dimensions.length * 100 
-      : null;
+    const lengthInitialValue = GET_DATA ? GET_DATA.dimensions.length * 100 : null;
     const widthInitialValue = GET_DATA ? GET_DATA.dimensions.width  * 100  : null;
-    const heightInitialValue = GET_DATA
-      ? GET_DATA.dimensions.height  * 100 
-      : null;
+    const heightInitialValue = GET_DATA  ? GET_DATA.dimensions.height  * 100 : null;
 
     this.currentCargo = {
       name: null,
@@ -729,6 +725,7 @@ class CargosState {
       width: widthInitialValue,
       height: heightInitialValue,
     };
+    //console.warn("currentCargo: ", this.currentCargo);
     this.cargos = new Map();
 
     let onPressEnterFunction = () => {
@@ -1229,6 +1226,11 @@ if (document.getElementById("calculation-form")) {
 		calculationForm.state.billingRequest["fromRegion"] = derivalCity.value;
 		calculationForm.state.tarifCalculation();
 	}
+	
+	w.value = GET_DATA ? w.value : 0;
+	l.value = GET_DATA ? l.value : 0;
+	h.value = GET_DATA ? h.value : 0;
+	width.value = GET_DATA ? width.value : 0;
   
   calculationForm.state.billingRequest.weight = w.value;
   calculationForm.state.billingRequest.length = l.value;
