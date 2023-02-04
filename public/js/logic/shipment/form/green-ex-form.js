@@ -1,3 +1,6 @@
+// wp-content/themes/greenEx/assets/js/logic/shipment/form/green-ex-form.js
+
+
 import { Billing } from "../model/billing.js";
 import { BillingRequest } from "../model/billing_request.js";
 import { CreateShipmentRequest } from "../model/create_shipment_request.js";
@@ -172,22 +175,33 @@ export class GreenExForm {
               totalSum: si.amount, 
             });
 
-            this._totalSum = si.amount;
-          //  console.log("totalSum: ", this._totalSum);
+            
+          
             this._priceDelivery = si.amount;
-            this.setPrice(si.amount);
-
+            this._priceBlock.setAttribute("data-price", si.amount);
+           
+            
+            
+            if(this._cargos.size !== 0){
+					this._totalSum = this.recalculateTotalSum(Number(this._priceDelivery));
+					this.setPrice(this._totalSum);
+			}else{
+				this._totalSum = this._priceDelivery;
+            this.setPrice(this._priceDelivery);
+            }
             this.setServicesPrice(bill.services);
             if (this._billBlock) {
               this.drawBillInfo(bill.services);
             }
           } else {
-            //console.log(si.error);
+            console.log(si.error);
             this.setError("danger", si.error);
-             this._totalSum = 0;
             
-            this._priceDelivery = 0;
-            this.setPrice(0);
+           if(this._cargos.size == 0) {
+			    this._totalSum = 0;
+                this._priceDelivery = 0;
+			   this.setPrice(0);
+		   }
           }
         }
       }
@@ -298,7 +312,19 @@ export class GreenExForm {
     }
   }
   // ***
-
+  recalculateTotalSum(base){
+	  let priceArray = [];
+	  this._cargos.forEach(function(el, i){
+		  priceArray.push(el.price);
+	  });
+	  let totalSum = priceArray.reduce(function(ac, v){
+	let returns = ac + v;
+	return returns;
+	}, base);
+	return totalSum;
+  }
+   
+  
   clearError() {
     this._enableButtons();
     this._errorBlock.innerHTML = "";
@@ -374,7 +400,7 @@ export class GreenExForm {
   }
 
   setPrice(value) {
-    this._priceBlock.innerHTML = value;
+    this._priceBlock.textContent = value;
   }
 
   drawBillInfo(services) {
@@ -532,19 +558,21 @@ export class GreenExForm {
 
   addCargo(cargo) {
     let id = this._makeId();
-
+console.warn('total price: ', this._totalSum, 'priceDelivery:', this._priceDelivery)
     let cargoItem = new Cargo({
       name: cargo.name,
       weight: parseInt(cargo.weight),
       length: parseInt(cargo.length) / 100,
       width: parseInt(cargo.width) / 100,
       height: parseInt(cargo.height) / 100,
+      price: Number(this._priceDelivery),
     });
     this._cargos.set(id, cargoItem);
 
     this.setMaxDimensions();
-    this.tarifCalculation();
-
+    // нафига подсчитывать заново цену, когда пхп скрипт габариты в сантиметрах принимает, а не в метрах
+   // this.tarifCalculation();
+	
     return id;
   }
 
@@ -552,7 +580,16 @@ export class GreenExForm {
     this._cargos.delete(id);
 
     this.setMaxDimensions();
-    this.tarifCalculation();
+    //this.tarifCalculation();
+    
+    let b = 0;
+    
+    if(this._cargos.size !==0){
+		
+	b = this.recalculateTotalSum(0);
+}
+    this.setPrice(b);
+
   }
 
   setMaxDimensions() {

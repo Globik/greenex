@@ -1,9 +1,13 @@
+// wp-content/themes/greenEx/assets/js/presentation/form/main.js
+
 import { GreenExForm } from "../../logic/shipment/form/green-ex-form.js";
 import { ModalCall, ModalMessage, ModalSubmitApplication } from "./modal.js";
 
 const DA_DATA_TOKEN = "fa388077b3b1932cc0e3f661829082185bdcfb25";
 
 // Modals
+
+
 
 const modalCall = new ModalCall("modal-call");
 const modalMessage = new ModalMessage("modal-comment");
@@ -709,9 +713,9 @@ class ExtraService {
 }
 
 class CargosState {
-  constructor({ block, cargoAddedCallback, cargoDeletedCallback }) {
+  constructor({ block, cargoAddedCallback, cargoDeletedCallback}) {
     this.block = block;
-
+    
     const weightInitialValue = GET_DATA ? GET_DATA.dimensions.weight : null;
     // Габариты умножаем на 100 для перевода в сантиметры
     const lengthInitialValue = GET_DATA ? GET_DATA.dimensions.length * 100 : null;
@@ -725,7 +729,7 @@ class CargosState {
       width: widthInitialValue,
       height: heightInitialValue,
     };
-    //console.warn("currentCargo: ", this.currentCargo);
+    
     this.cargos = new Map();
 
     let onPressEnterFunction = () => {
@@ -882,10 +886,13 @@ class CargosState {
   addListItem(id) {
     let listItem = document.createElement("li");
     listItem.classList.add("added-list__item");
-
+  
     let text = document.createElement("div");
     text.classList.add("added-list__text");
-    text.innerHTML = `${this.currentCargo.name}, ${this.currentCargo.weight}кг, ${this.currentCargo.length}x${this.currentCargo.width}x${this.currentCargo.height}`;
+    let aPrice = 0;
+    let dPrice = document.getElementById("total-price");
+    if(dPrice) aPrice = dPrice.getAttribute("data-price");
+    text.innerHTML = `${this.currentCargo.name}, ${this.currentCargo.weight}кг, ${this.currentCargo.length}x${this.currentCargo.width}x${this.currentCargo.height}, ${aPrice} руб.`;
 
     let btn = document.createElement("button");
     btn.classList.add("added-list__btn");
@@ -953,6 +960,7 @@ class SinglePageForm {
       cargoDeletedCallback: (id) => {
         this.state.deleteCargo(id);
       },
+     
     });
 
     this.derivalLocality = new LocalityInput({
@@ -1166,6 +1174,7 @@ class CalculationForm extends SinglePageForm {
           clearTimeout(servicesTimer);
           servicesTimer = setTimeout(() => {
             this.state.tarifCalculation();
+             
           }, 1000);
         },
       });
@@ -1182,6 +1191,7 @@ class CalculationForm extends SinglePageForm {
           clearTimeout(servicesTimer);
           servicesTimer = setTimeout(() => {
             this.state.tarifCalculation();
+            
           }, 1000);
         },
         onCheckedFalse: () => {
@@ -1219,12 +1229,14 @@ if (document.getElementById("calculation-form")) {
 		calculationForm.state.billingRequest["toCity"] = arrivalCity.value;
 		calculationForm.state.billingRequest["toRegion"] = arrivalCity.value;
 		calculationForm.state.tarifCalculation();
+		
 	}
 	
 	derivalCity.onchange = function(e){
 		calculationForm.state.billingRequest["fromCity"] = derivalCity.value;
 		calculationForm.state.billingRequest["fromRegion"] = derivalCity.value;
 		calculationForm.state.tarifCalculation();
+		
 	}
 	
 	w.value = GET_DATA ? w.value : 0;
@@ -1253,6 +1265,7 @@ function hChange(e){
   calculationForm.state.billingRequest.height = h.value;
   calculationForm.state.billingRequest.width = width.value;
   calculationForm.state.tarifCalculation();
+ 
 }
 }
 class TaxiForm extends SinglePageForm {
