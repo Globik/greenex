@@ -183,7 +183,7 @@ export class GreenExForm {
             
             
             if(this._cargos.size !== 0){
-					this._totalSum = this.recalculateTotalSum(Number(this._priceDelivery));
+					this._totalSum = this.recalculateTotalSum(Number(this._priceDelivery).toFixed(2));
 					this.setPrice(this._totalSum);
 			}else{
 				this._totalSum = this._priceDelivery;
@@ -565,7 +565,7 @@ console.warn('total price: ', this._totalSum, 'priceDelivery:', this._priceDeliv
       length: parseInt(cargo.length) / 100,
       width: parseInt(cargo.width) / 100,
       height: parseInt(cargo.height) / 100,
-      price: Number(this._priceDelivery),
+      price: Number(this._priceDelivery).toFixed(2),
     });
     this._cargos.set(id, cargoItem);
 

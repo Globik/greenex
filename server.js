@@ -20,7 +20,7 @@ app.get('/wp-content/themes/greenEx/php/calc.php', (req, res) => {
 
 let a = new Map();
 a.set(1, {price: 1});
-a.set(2, {price: 2});
+a.set(2, {price: 2.20});
 a.set(3, {price: 3});
 console.log("size: ", a.size);
 let c = [];
@@ -34,6 +34,8 @@ let b = c.reduce(function(ac, v){
 	return returns;
 }, 10)
 console.log("total sum: ", b)
+let da = "504.10";
+console.log("da: ", Number(da).toFixed(2))
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
