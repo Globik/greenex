@@ -697,7 +697,7 @@ class ExtraService {
   constructor({ input, onCheckedTrue, onCheckedFalse }) {
     this.input = input;
     this._onCheckedTrue = onCheckedTrue;
-    this.onCheckedFalse = onCheckedFalse;
+    this._onCheckedFalse = onCheckedFalse;
     this.input.addEventListener("change", (event) => {
       this.eventChangeInput(event);
     });
@@ -706,8 +706,9 @@ class ExtraService {
   eventChangeInput(event) {
     if (this.input.checked) {
       this._onCheckedTrue();
+      
     } else {
-      this.onCheckedFalse();
+      this._onCheckedFalse();
     }
   }
 }
@@ -1182,6 +1183,69 @@ class CalculationForm extends SinglePageForm {
         },
       });
     });
+    var that = this;
+    let code;
+    this.additionalServicesAll[0].oninput = function(e){
+		if(e.target.checked){
+			that.additionalServicesAll[1].setAttribute("disabled", true);
+		
+	code = e.target.getAttribute("value");
+      let shortName = e.target.getAttribute("data-short-name");
+      let fullName = e.target.getAttribute("data-full-name");
+      
+        that.state.setDerivalService(code, shortName, fullName);
+        
+	  
+          clearTimeout(servicesTimer);
+          servicesTimer = setTimeout(() => {
+            that.state.tarifCalculation();
+            
+          }, 1000);
+	}else{
+		 
+		console.warn(code);
+		 that.state.deleteDerivalService(code);
+
+          clearTimeout(servicesTimer);
+          servicesTimer = setTimeout(() => {
+            that.state.tarifCalculation();
+           
+           that.additionalServicesAll[1].disabled = false;
+          }, 1000);
+	}
+};
+
+
+  this.additionalServicesAll[1].oninput = function(e){
+		if(e.target.checked){
+			that.additionalServicesAll[0].setAttribute("disabled", true);
+		
+	code = e.target.getAttribute("value");
+      let shortName = e.target.getAttribute("data-short-name");
+      let fullName = e.target.getAttribute("data-full-name");
+      
+        that.state.setDerivalService(code, shortName, fullName);
+         
+	  
+          clearTimeout(servicesTimer);
+          servicesTimer = setTimeout(() => {
+            that.state.tarifCalculation();
+            
+          }, 1000);
+	}else{
+		 
+		console.warn(code);
+		 that.state.deleteDerivalService(code);
+
+          clearTimeout(servicesTimer);
+          servicesTimer = setTimeout(() => {
+            that.state.tarifCalculation();
+           
+           that.additionalServicesAll[0].disabled = false;
+          }, 1000);
+	}
+};
+    /*
     this.additionalServicesAll.forEach((serviceInput) => {
       let code = serviceInput.getAttribute("value");
       let shortName = serviceInput.getAttribute("data-short-name");
@@ -1189,15 +1253,24 @@ class CalculationForm extends SinglePageForm {
       let derivalService = new ExtraService({
         input: serviceInput,
         onCheckedTrue: () => {
-          this.state.setDerivalService(code, shortName, fullName);
-
+          //this.state.setDerivalService(code, shortName, fullName);
+          if(this.additionalServicesAll[0].checked){
+			  this.state.setDerivalService(code, shortName, fullName);
+          this.additionalServicesAll[1].checked = false;
+	  
           clearTimeout(servicesTimer);
           servicesTimer = setTimeout(() => {
             this.state.tarifCalculation();
             
           }, 1000);
+	  }else{
+		 // this.onCheckedFalse();
+		 console.warn("not checked");
+		 //alert("not checked");
+	  }
         },
         onCheckedFalse: () => {
+			//if(!this.additionalServicesAll[1].checked ) return;
           this.state.deleteDerivalService(code);
 
           clearTimeout(servicesTimer);
@@ -1207,6 +1280,8 @@ class CalculationForm extends SinglePageForm {
         },
       });
     });
+    */
+     
   }
 }
 
@@ -1258,6 +1333,8 @@ if (document.getElementById("calculation-form")) {
   l.onchange = hChange;
   h.onchange = hChange;
   width.onchange = hChange;
+   calculationForm.state.tarifCalculation();
+ 
 }
 
 

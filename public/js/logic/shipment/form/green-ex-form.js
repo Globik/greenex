@@ -160,6 +160,13 @@ export class GreenExForm {
         "cargo-width": this.billingRequest.width,
         "cargo-height": this.billingRequest.height,
       };
+      
+      dataToSend.condition = 1;
+      
+      if(this.billingRequest.services.length !==0){
+		
+	}
+      
       let response = await fetch( "/wp-content/themes/greenEx/php/calc.php?" + new URLSearchParams(dataToSend));
 
       let si;
