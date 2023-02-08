@@ -891,7 +891,10 @@ class CargosState {
     text.classList.add("added-list__text");
     let aPrice = 0;
     let dPrice = document.getElementById("total-price");
-    if(dPrice) aPrice = dPrice.getAttribute("data-price");
+    if(dPrice){ 
+		aPrice = (dPrice.getAttribute("data-price") === null ? dPrice.textContent : dPrice.getAttribute("data-price"));
+		
+	}
     text.innerHTML = `${this.currentCargo.name}, ${this.currentCargo.weight}кг, ${this.currentCargo.length}x${this.currentCargo.width}x${this.currentCargo.height}, ${aPrice} руб.`;
 
     let btn = document.createElement("button");

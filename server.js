@@ -33,9 +33,9 @@ let b = c.reduce(function(ac, v){
 	var returns = ac + v;
 	return returns;
 }, 10)
-console.log("total sum: ", b)
+console.log("total sum: ", b.toFixed(2))
 let da = "504.10";
-console.log("da: ", Number(da).toFixed(2))
+console.log("da: ", Number(parseFloat(da).toFixed(2)))
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

@@ -88,7 +88,7 @@ export class GreenExForm {
             desiredTimeFrom: this._desiredTimeFrom,
             desiredTimeTo: this._desiredTimeTo,
             dimensions: this._getDimensions(),
-            priceDelivery: ( event.target.price.value ? event.target.price.value : "0")
+            priceDelivery: ( event.target.price.value ? event.target.price.value : "0.00")
           };
           this._sendPostData(action, getData);
         }
@@ -183,8 +183,9 @@ export class GreenExForm {
             
             
             if(this._cargos.size !== 0){
-					this._totalSum = this.recalculateTotalSum(Number(this._priceDelivery).toFixed(2));
-					this.setPrice(this._totalSum);
+					this._totalSum = this.recalculateTotalSum(Number(this._priceDelivery));
+					console.log("this._totalSum: ", this._totalSum);
+					this.setPrice(this._totalSum.toFixed(2));
 			}else{
 				this._totalSum = this._priceDelivery;
             this.setPrice(this._priceDelivery);
@@ -200,7 +201,7 @@ export class GreenExForm {
            if(this._cargos.size == 0) {
 			    this._totalSum = 0;
                 this._priceDelivery = 0;
-			   this.setPrice(0);
+			   this.setPrice(0.00);
 		   }
           }
         }
@@ -565,7 +566,7 @@ console.warn('total price: ', this._totalSum, 'priceDelivery:', this._priceDeliv
       length: parseInt(cargo.length) / 100,
       width: parseInt(cargo.width) / 100,
       height: parseInt(cargo.height) / 100,
-      price: Number(this._priceDelivery).toFixed(2),
+      price: Number(this._priceDelivery),
     });
     this._cargos.set(id, cargoItem);
 
@@ -588,7 +589,7 @@ console.warn('total price: ', this._totalSum, 'priceDelivery:', this._priceDeliv
 		
 	b = this.recalculateTotalSum(0);
 }
-    this.setPrice(b);
+    this.setPrice(b.toFixed(2));
 
   }
 
