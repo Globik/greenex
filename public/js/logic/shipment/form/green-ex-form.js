@@ -159,12 +159,21 @@ export class GreenExForm {
         "cargo-length": this.billingRequest.length,
         "cargo-width": this.billingRequest.width,
         "cargo-height": this.billingRequest.height,
+        "condition-upakovka": "0",
       };
       
-      dataToSend.condition = 1;
+      
       
       if(this.billingRequest.services.length !==0){
-		
+		this.billingRequest.services.forEach(function(el){
+			if(el.code == "УО-ДопУпаковка"){
+				dataToSend["condition-upakovka"] = "1";
+			}else if(el.code == "УО-ДеревяннаяОбрешётка"){
+				dataToSend["condition-upakovka"] = "2";
+			}else{
+				dataToSend["condition-upakovka"] = "0";
+			}
+		});
 	}
       
       let response = await fetch( "/wp-content/themes/greenEx/php/calc.php?" + new URLSearchParams(dataToSend));

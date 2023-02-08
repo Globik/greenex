@@ -107,6 +107,16 @@ $(document).ready(function () {
         $(this).next().slideToggle(300);
     }
 	
+	if(document.getElementById("intercity-form-price")){
+		let f = document.getElementById("intercity-form");
+		 let inp = document.createElement("input");
+		 inp.setAttribute("type", "hidden");
+		 inp.setAttribute("name", "condition-upakovka");
+		 inp.setAttribute("value", "0");
+		 f.appendChild(inp);
+	}
+	
+	
   // Калькулятор
   $('#intercity-form input').on('change', function () {
    console.warn("JQUERY AJAX CALL");
@@ -135,6 +145,7 @@ $(document).ready(function () {
      console.warn('cargo-length: ', $('.form_slider').find("input[name=cargo-length]").val());
      console.warn('cargo-width: ', $('.form_slider').find("input[name=cargo-width]").val());
      console.warn('cargo-height: ', $('.form_slider').find("input[name=cargo-height]").val());
+     console.warn('condition-upakovka: ', $('.form_slider').find('input[name=condition-upakovka]').val());
 
     var dataSend = $('.form_slider').serialize();
   
